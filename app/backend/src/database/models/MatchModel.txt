@@ -1,0 +1,22 @@
+const MatchModel = (sequelize, DataTypes) => {
+  const Match = sequelize.define(
+    'Match',
+    {
+      id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+      homeTeamId: DataTypes.INTEGER,
+      homeTeamGoals: DataTypes.INTEGER,
+      awayTeamId: DataTypes.INTEGER,
+      awayTeamsGoals: DataTypes.INTEGER,
+      inProgress: DataTypes.BOOLEAN,
+    },
+    {
+      timestamps: false, // remove a obrigatoriedade de utilizar os campos `createdAt` e `updatedAt`
+      tableName: 'matches',
+      underscored: true,
+    },
+  );
+
+  return Match;
+};
+
+module.exports = MatchModel;

@@ -1,0 +1,18 @@
+const TeamModel = (sequelize, DataTypes) => {
+  const Team = sequelize.define(
+    'Team',
+    {
+      id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+      teamName: DataTypes.STRING,
+    },
+    {
+      timestamps: false, // remove a obrigatoriedade de utilizar os campos `createdAt` e `updatedAt`
+      tableName: 'teams',
+      underscored: true,
+    },
+  );
+
+  return Team;
+};
+
+module.exports = TeamModel;
